@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Projeto1</title>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <div class="caixa">
+                <p>Formulários</p>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Formulário 1</a></li>
+                        <li><a href="">Formulário 2</a></li>
+                        <li><a href="">Formulário 3</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <form class="formulario">
+                <div>
+                    <label for="nome" class="label-inteiro">Nome: </label>
+                    <input type="text" class="input-padrao" id="nome" placeholder="Insira seu nome" required>
+                </div>   
+                <div>
+                    <label for="email" class="label-inteiro">Email: </label>
+                    <input type="email" class="input-padrao" id="email" placeholder="Insira seu email" required>
+                </div>
+                <div>
+                    <label for="senha" class="label-inteiro">Senha: </label>
+                    <input type="password" class="input-padrao" id="senha" placeholder="Insira sua senha" required>
+                </div>
+                <div>
+                    <label for="telefone" class="label-inteiro">Telefone: </label>
+                    <input type="tel" class="input-padrao" id="telefone" placeholder="Insira seu telefone" required>
+                </div>
+                <div>
+                    <label for="dataNasc" class="label-inteiro">Data de nascimento: </label>
+                    <input type="date" class="input-padrao" id="dataNasc" required>
+                </div>
+                <div>
+                    <p class="label-inteiro">Selecione uma opção para contato</p>
+                    <select class="input-padrao" required>
+                        <option disabled selected value>Selecione uma opção</option>
+                        <option>Email</option>
+                        <option>Telefone</option>
+                        <option>Ambos</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="observacao" class="label-inteiro">Insira uma observação (Opcional)</label>
+                    <textarea class="input-padrao" id="observacao" placeholder="Insira uma observação"></textarea>
+                </div>
+                
+                <input type="submit" class="botao">
+            </form>        
+        </main>
+        <footer>
+            <div class="rodape">
+                
+            </div>
+        </footer>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>
