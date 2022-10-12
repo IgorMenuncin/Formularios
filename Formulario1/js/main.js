@@ -1,4 +1,5 @@
 const formulario = document.querySelector("#formulario1");
+const cadastros = JSON.parse(localStorage.getItem("cadastro")) || [];
 
 formulario.addEventListener ("submit", (evento) => {
     evento.preventDefault();
@@ -10,11 +11,18 @@ formulario.addEventListener ("submit", (evento) => {
     const opContato = evento.target.elements.opContato; //input do tipo select
     const observacao = evento.target.elements["observacao"];
 
+    const cadastroAtual = {
+        "nome": nome.value,
+        "email": email.value,
+        "senha": senha.value,
+        "telefone": telefone.value,
+        "dataNasc": dataNasc.value,
+        "opContato": opContato.value,
+        "observacao": observacao.value
+    }
 
-    console.log(evento.target.elements);
-    
-    
+    cadastros.push(cadastroAtual);
 
-
+    localStorage.setItem("cadastro",JSON.stringify(cadastros));
 })
 
