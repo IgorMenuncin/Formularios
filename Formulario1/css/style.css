@@ -73,6 +73,25 @@ nav {
 .botao:hover {
     background:#ffffff;
     color: #000000;
+    cursor: pointer;
+}
+
+.exibir {
+    text-align: center;
+    display: block;
+    margin: 100px 0px 0px auto;
+    width: 20%;
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+    font-size: 20px;
+}
+
+.exibir:hover {
+    background: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+    cursor: pointer;
 }
 
 .rodape {
