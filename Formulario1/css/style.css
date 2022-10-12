@@ -87,11 +87,20 @@ nav {
     font-size: 20px;
 }
 
+.exibir a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
 .exibir:hover {
     background: #ffffff;
     color: #000000;
     border: 2px solid #000000;
     cursor: pointer;
+}
+
+.exibir a:hover {
+    color: #000000;
 }
 
 .rodape {
