@@ -24,10 +24,19 @@ if (document.location.pathname === "/Formulario1/index.html"){ // validação da
                 "Telefone": pessoa.telefone.value,
                 "Data de Nascimento": pessoa.dataNasc.value,
                 "Contato": pessoa.opContato.value,
-                "Observacao": pessoa.observacao.value
+                "Observacao": pessoa.observacao.value,
+                "Id": ""
             }
 
-            cadastros.push(cadastroAtual); // armazenando objeto do localStorage no vetor
+            const existe = cadastros.find ( elemento => elemento.Nome === pessoa.nome.value); // Verificando se o nome escrito ja foi cadastrado
+            if (existe) {    // Caso exista
+                cadastroAtual.Id = existe.Id; // Atribuir ao id do cadastro atual o id do nome ja existente
+                cadastros[existe.Id] = cadastroAtual; // Atualiza o cadastro antigo pelo novo
+            }
+            else {
+                cadastroAtual.Id = cadastros.length // adiciona um id ao objeto
+                cadastros.push(cadastroAtual); // armazenando objeto do localStorage no vetor
+            }
 
             localStorage.setItem("cadastro",JSON.stringify(cadastros)); //tranformando vetor em json e enviando para localStorage
         }
@@ -43,20 +52,24 @@ if (document.location.pathname === "/Formulario1/exibir.html"){ // validação d
         mostrarCadastro(elemento); // chamando função mostrarCadastro
     })
     botaoLimpar.addEventListener("click", limparLocalStorage); // chama funcao para limpar local storage ao clicar no botao
+    if (cadastros.length < 2){
+        const main = document.querySelector('.espaco');
+        main.classList.replace('espaco','espacoSemItens');
+    }
+
 }
 
 function mostrarCadastro (item) {
     const addUl = document.createElement('ul'); // constante para criar ul (lista), que no caso será a lista menor
     addUl.classList.add("cadastrado"); // adicionando classe "cadastrado" a cada lista menor (ul) criada
-    addUl.id = item.Nome; // adicionando id que sera igual ao nome a ul (lista menor) criada
+    addUl.dataset.id = item.Id; // adicionando id que sera igual ao nome a ul (lista menor) criada
     listarCad.appendChild(addUl); // adicionando lista menor (ul) a lista maior (listarCad)
 
-    const ulAtual = document.getElementById(item.Nome); // constante para armazenar lista menor atual
+    const ulAtual = document.querySelector("[data-id='" + item.Id + "']"); // constante para armazenar lista menor atual
     
     Object.keys(item).forEach((elemento) => { // funcao que criar um item da lista (li), atribuira a ele um valor do objeto e incluira na lista menor
         const addLi = document.createElement('li'); // constante para criar li (item de lista)
         addLi.innerHTML += `${elemento}: ${item[elemento]}`; // atribui ao item da lista menor um dos valores do objeto
-        console.log(`${elemento}: ${item[elemento]}`);
         addLi.classList.add("itemlista"); // adicionando a classe "itemlista" aos itens (li) da lista menor (ul)
         ulAtual.appendChild(addLi); // adicionando li a lista menor atual
     })
