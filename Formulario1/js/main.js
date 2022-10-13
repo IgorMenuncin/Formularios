@@ -18,13 +18,13 @@ if (document.location.pathname === "/Formulario1/index.html"){ // validação da
 
         if (pessoa.nome.value !== ""){ // validando se nome esta vazio, após utilizar required nas tags essa validação pode ser removida
             const cadastroAtual = { // objeto para armazenar as informações do formulario e enviar para localStorage
-                "nome": pessoa.nome.value,
-                "email": pessoa.email.value,
-                "senha": pessoa.senha.value,
-                "telefone": pessoa.telefone.value,
-                "dataNasc": pessoa.dataNasc.value,
+                "Nome": pessoa.nome.value,
+                "Email": pessoa.email.value,
+                "Senha": pessoa.senha.value,
+                "Telefone": pessoa.telefone.value,
+                "Data de Nascimento": pessoa.dataNasc.value,
                 "Contato": pessoa.opContato.value,
-                "observacao": pessoa.observacao.value
+                "Observacao": pessoa.observacao.value
             }
 
             cadastros.push(cadastroAtual); // armazenando objeto do localStorage no vetor
@@ -42,20 +42,21 @@ if (document.location.pathname === "/Formulario1/exibir.html"){ // validação d
     cadastros.forEach ( (elemento) => { 
         mostrarCadastro(elemento); // chamando função mostrarCadastro
     })
-    botaoLimpar.addEventListener("click", limparLocalStorage); // chamar funcao limpar local storage ao clicar no botao limpar
+    botaoLimpar.addEventListener("click", limparLocalStorage); // chama funcao para limpar local storage ao clicar no botao
 }
 
 function mostrarCadastro (item) {
     const addUl = document.createElement('ul'); // constante para criar ul (lista), que no caso será a lista menor
     addUl.classList.add("cadastrado"); // adicionando classe "cadastrado" a cada lista menor (ul) criada
-    addUl.id = item.nome; // adicionando id que sera igual ao nome a ul (lista menor) criada
+    addUl.id = item.Nome; // adicionando id que sera igual ao nome a ul (lista menor) criada
     listarCad.appendChild(addUl); // adicionando lista menor (ul) a lista maior (listarCad)
 
-    const ulAtual = document.getElementById(item.nome); // constante para armazenar lista menor atual
+    const ulAtual = document.getElementById(item.Nome); // constante para armazenar lista menor atual
     
     Object.keys(item).forEach((elemento) => { // funcao que criar um item da lista (li), atribuira a ele um valor do objeto e incluira na lista menor
         const addLi = document.createElement('li'); // constante para criar li (item de lista)
         addLi.innerHTML += `${elemento}: ${item[elemento]}`; // atribui ao item da lista menor um dos valores do objeto
+        console.log(`${elemento}: ${item[elemento]}`);
         addLi.classList.add("itemlista"); // adicionando a classe "itemlista" aos itens (li) da lista menor (ul)
         ulAtual.appendChild(addLi); // adicionando li a lista menor atual
     })
