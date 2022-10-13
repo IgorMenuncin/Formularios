@@ -24,27 +24,27 @@
                 <form class="espaco" id="formulario1">
                     <div>
                         <label for="nome" class="label-inteiro">Nome: </label>
-                        <input type="text" class="input-padrao" id="nome" placeholder="Insira seu nome">
+                        <input type="text" class="input-padrao" id="nome" placeholder="Insira seu nome" required>
                     </div>   
                     <div>
                         <label for="email" class="label-inteiro">Email: </label>
-                        <input type="email" class="input-padrao" id="email" placeholder="Insira seu email">
+                        <input type="email" class="input-padrao" id="email" placeholder="Insira seu email" required>
                     </div>
                     <div>
                         <label for="senha" class="label-inteiro">Senha: </label>
-                        <input type="password" class="input-padrao" id="senha" placeholder="Insira sua senha">
+                        <input type="password" class="input-padrao" id="senha" placeholder="Insira sua senha" required>
                     </div>
                     <div>
                         <label for="telefone" class="label-inteiro">Telefone: </label>
-                        <input type="tel" class="input-padrao" id="telefone" placeholder="Insira seu telefone">
+                        <input type="tel" class="input-padrao" id="telefone" placeholder="Insira seu telefone" required>
                     </div>
                     <div>
                         <label for="dataNasc" class="label-inteiro">Data de nascimento: </label>
-                        <input type="date" class="input-padrao" id="dataNasc">
+                        <input type="date" class="input-padrao" id="dataNasc" required>
                     </div>
                     <div>
                         <p class="label-inteiro">Selecione uma opção para contato</p>
-                        <select name="opContato" class="input-padrao">
+                        <select name="opContato" class="input-padrao" required>
                             <option disabled selected value>Selecione uma opção</option>
                             <option>Email</option>
                             <option>Telefone</option>
@@ -53,7 +53,7 @@
                     </div>
                     <div>
                         <label for="observacao" class="label-inteiro">Insira uma observação (Opcional)</label>
-                        <textarea class="input-padrao" id="observacao" placeholder="Insira uma observação"></textarea>
+                        <textarea class="input-padrao" id="observacao" placeholder="Insira uma observação" required></textarea>
                     </div>
                     
                     <input type="submit" class="botao">
